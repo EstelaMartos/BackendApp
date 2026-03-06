@@ -55,27 +55,26 @@ public class UsuarioController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody Usuario user) {
+    public ResponseEntity<Usuario> login(@RequestBody Usuario user) {
 
         Optional<Usuario> usuarioOpt = userRepository.findByEmail(user.getEmail());
 
         if (usuarioOpt.isEmpty()) {
-            return ResponseEntity.status(401).body("Usuario no encontrado");
+            return ResponseEntity.status(401).build();
         }
 
         Usuario usuario = usuarioOpt.get();
 
         if (!usuario.isEnabled()) {
-            return ResponseEntity.status(403).body("Cuenta no verificada");
+            return ResponseEntity.status(403).build();
         }
 
         if (!usuario.getPassword().equals(user.getPassword())) {
-            return ResponseEntity.status(401).body("Contraseña incorrecta");
+            return ResponseEntity.status(401).build();
         }
 
-        return ResponseEntity.ok("Login correcto");
+        return ResponseEntity.ok(usuario);
     }
-
     @GetMapping("/estado")
     public ResponseEntity<Boolean> estado(@RequestParam String email) {
 
