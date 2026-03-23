@@ -10,10 +10,10 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class Servicio {
 
-    @Value("${brevo.api.key}")
+    @Value("${brevo_api_key}")
     private String apiKey;
 
-    @Value("${app.base-url}")
+    @Value("${app_base-url}")
     private String baseUrl;
 
     @Async
