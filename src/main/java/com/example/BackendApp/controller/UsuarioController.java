@@ -69,7 +69,10 @@ public class UsuarioController {
             return ResponseEntity.status(403).build();
         }
 
-        if (!usuario.getPassword().equals(user.getPassword())) {
+        String pass = user.getPassword().trim();
+        String passBD = usuario.getPassword().trim();
+
+        if (!pass.equals(passBD)) {
             return ResponseEntity.status(401).build();
         }
 
