@@ -30,7 +30,7 @@ public class Servicio {
         headers.setContentType(MediaType.APPLICATION_JSON);
 
         String body = "{"
-                + "\"sender\":{\"email\":\"tuemail@gmail.com\",\"name\":\"BackendApp\"},"
+                + "\"sender\":{\"email\":\"verificarcorreotuapp@gmail.com\",\"verificarcuenta\":\"BackendApp\"},"
                 + "\"to\":[{\"email\":\"" + to + "\"}],"
                 + "\"subject\":\"Verifica tu cuenta\","
                 + "\"htmlContent\":\""
